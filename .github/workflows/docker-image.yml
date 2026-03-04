@@ -41,11 +41,11 @@ jobs:
       run: | 
         docker build -t jeffdev21/docker-graphql:$NEW_VERSION .
         docker build -t jeffdev21/docker-graphql .
-        echo "New version: $NEW_VERSION"
+        echo "New version: $NEW_VERSION
 
     - name:  Push Docker Image
       env:
-        NEW:VERSION: ${{ steps.version.outputs.version }}
+        NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
         docker push jeffdev21/docker-graphql:$NEW_VERSION
         docker push jeffdev21/docker-graphql
